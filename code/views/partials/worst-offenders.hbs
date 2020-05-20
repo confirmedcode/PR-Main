@@ -1,0 +1,36 @@
+<form class="form-inline pb-2" style="height: 54px">
+  <label class="lead">Worst Offenders</label>
+</form>
+
+{{#each reviews}}
+<div class="w-100 media bg-white border-bottom shadow position-relative py-2 px-2 mb-0" style="height:128px;">
+  <img src="{{this.iconUrl}}" class="img-fluid mt-2 mx-2" style="border-radius: 20% !important; width: 70px">
+  <div class="media-body pl-1 pr-1">
+    <div class="row">
+      <div class="col-12 pb-1 pt-1 pl-3">
+        <h5 class="mt-0 pb-0 mb-0 pl-0 font-weight-bold">{{this.displayName}}</h5>
+        <p class="text-muted mb-0 pl-0 pb-1 small font-weight-bold">{{this.tagline}}</p>
+      </div>
+    </div>
+    <div class="row py-0 mb-1 text-center no-gutters" style="background-color:#f1f5f8">
+      <div class="col-4 pb-2 pt-1">
+        <span class="font-weight-bold">{{this.numTrackers}}</span>
+        <span class="d-block small text-muted" style="line-height: 10px;"><small><strong>TRACKERS</strong></small></span>
+      </div>
+      <div class="col-4 pb-2 pt-1">
+        <span class="font-weight-bold">{{this.numAttempts}}</span>
+        <span class="d-block small text-muted" style="line-height: 10px;"><small><strong>ATTEMPTS</strong></small></span>
+      </div>
+      <div class="col-4 pb-2 pt-1">
+        <div class="Ribbon-small bg-warning px-2 py-1" style="background-color: {{lookup @root/RATING_COLOR this.rating}} !important; margin-top: -4.5px; opacity: 1; position:absolute; top:0; right: 0px">
+            <p class="mb-0" style="font-size: 24px; line-height: 30px;"><strong>{{this.rating}}</strong></p>
+            <p class="mb-0 small pb-1 px-1 font-weight-bold" style="line-height: 14px; font-weight: 600; letter-spacing: 0.5px;">RATING</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pl-0 pt-2">
+    <a href="/{{this.name}}" class="stretched-link px-0 py-0 mt-3 pl-1 font-weight-bold btn text-dark" style="opacity:0.5"><h1>&rsaquo;</h1></a>
+  </div>
+</div>
+{{/each}}

@@ -1,0 +1,92 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #f0d43a; height: 58px;">
+
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class="navbar-nav mr-auto" style="background-color: #f0d43a;">
+        <!--
+            <li class="nav-item">
+                <a class="nav-link" href="#">Left</a>
+            </li>
+        -->
+        </ul>
+    </div>
+    <div class="mx-auto order-0 d-sm-block d-none">
+        <a class="navbar-brand mx-auto" href="/">
+          <img src="{{S3_BUCKET}}/images/logo.png" height="42" class="d-inline-block" alt="">
+        </a>
+    </div>
+    <div class="mr-auto order-0 d-sm-none">
+        <a class="navbar-brand mx-auto" href="/">
+          <img src="{{S3_BUCKET}}/images/logo.png" class="d-inline-block" style="max-width: 240px;" alt="">
+        </a>
+    </div>
+
+    <div style="width: 0px;">
+      <button class="navbar-toggler float-right border-0" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+          <span class="navbar-toggler-icon">   
+              <i class="fa fa-navicon" style="color:#3498db; font-size:28px;"></i>
+          </span>
+      </button>
+    </div>
+    
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2 text-center">
+        <ul class="navbar-nav ml-auto" style="background-color: #f0d43a;">
+            <li class="nav-item">
+                <a class="nav-link font-weight-bold text-dark mx-1" href="#" data-toggle="modal" data-target="#whatAreTrackersModal">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link font-weight-bold text-dark mx-1" target="_blank" href="https://lockdownhq.com">Block Trackers</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link font-weight-bold text-dark mx-1" href="#request">Request</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="modal fade text-left" id="whatAreTrackersModal" tabindex="-1" role="dialog" aria-labelledby="whatAreTrackersModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <img class="img-fluid w-100 py-1 pt-2" src="{{S3_BUCKET}}/images/tracker-diagram.png" alt="diagram of user data going into an app, then going into third party companies like marketing firms"/>
+        <h5>What are trackers?</h5>
+        <p>Trackers hide inside apps and send your data to third parties.</p>
+        <h5>Why are trackers bad?</h5>
+        <ul>
+          <li><strong>Privacy</strong>: Personal data shouldn't be shared with third parties, especially without explicit user consent.</li>
+          <li><strong>Stability</strong>: Trackers can crash apps, and very recently caused a <a href="https://www.theverge.com/2020/5/7/21250689/facebook-sdk-bug-ios-app-crash-apple-spotify-venmo-tiktok-tinder" target="_blank">massive outage</a> for tens of millions of users.</li>
+          <li><strong>Battery</strong>: Trackers can send personal data even in the background, causing battery drain and slowness.</li>
+        </ul>
+        <p class="pb-0 mb-0">Privacy Review exposes trackers in popular apps by using <a href="https://lockdownhq.com" target="_blank">Lockdown</a>, an app that blocks trackers.</p>
+      </div>
+      <div class="modal-footer text-center">
+        <button type="button" data-dismiss="modal" class="btn btn-primary zoom mx-auto px-5">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade text-left" id="ratingCriteriaModal" tabindex="-1" role="dialog" aria-labelledby="ratingCriteriaModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h5 class="modal-title text-center mb-2">Rating System</h5>
+        <p>The final rating of apps is based on the following criteria:
+        <ul>
+          <li>
+            <strong>Trackers</strong>: How invasive are the trackers? How frequently do they send data? Do users have a chance to consent or opt-out of tracking?
+          </li>
+          <li>
+            <strong>Popularity</strong>: Popular apps are held to a higher standard, because there are simply more people affected by hidden tracking. More users, more responsibility.
+          </li>
+          <li>
+            <strong>Red Flags</strong>: Does the app engage in any suspicious behavior, or have a lax or vague Privacy Policy, or have an irresponsible track record with privacy or security?
+          </li>
+        </ul>
+        <p>An "A" rating is exceptional, "B" is decent, "C" is not good, "D" is bad, and "F" is failing.
+      </div>
+      <div class="modal-footer text-center">
+        <button type="button" class="btn btn-secondary px-5 mx-auto" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

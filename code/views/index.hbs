@@ -1,0 +1,111 @@
+{{> header title="Home" }}
+  
+<body style="background-color:white;">
+  
+  {{> nav }}
+  
+  <div class="text-center jumbotron jumbotron-fluid mb-0 pb-3 pt-4 yellow-bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h2 class="font-weight-bold mb-2 mt-1">Are your apps secretly tracking you?</h2>
+          <p class="lead mb-2">
+            See what your apps are doing behind your back.
+          </p>
+          <p class="mt-0 pt-2 mb-1">
+             <a href="#" data-toggle="modal" data-target="#whatAreTrackersModal" class="btn btn-outline-dark zoom mx-1 mb-2" style="width:190px;">What Are Trackers?</a>
+          </p>
+          <p class="small text-dark" style="font-weight: 600">Powered by <a href="https://lockdownhq.com" target="_blank">Lockdown</a>, the app that blocks trackers.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  {{#if filteredTrackerDisplayName}}
+    <div class="jumbotron pb-0 mb-0 pt-4 px-0 px-lg-2">
+      <div class="container mt-0 pb-4 pt-2">
+        <div class="row">
+          <div class="col-lg-6 offset-lg-3 pl-xl-5 pr-xl-4">
+            <h5 class="mb-1 text-center" style="font-weight: 600">Apps Using <strong>"{{filteredTrackerDisplayName}}"</strong> Tracker</h5>
+            <p class="mt-0 pt-2 mb-1 text-center">
+               <a href="/" class="btn btn-outline-dark shadow zoom mx-auto mb-2" style="width:190px;">Show All Reviews</a>
+            </p>
+            {{> reviews }}
+          </div>
+        </div>
+      </div>
+    </div>
+  {{else}}
+  <div class="jumbotron pb-0 mb-0 pt-4 px-0 px-lg-2">
+    <div class="container mt-0 pb-4 pt-2 d-lg-block d-none">
+      <div class="row">
+        <div class="col-lg-5 offset-lg-1 pl-xl-5 pr-xl-4">
+          <h5 class="mb-1 text-center" style="font-weight: 600">App Reviews</h5>
+          <p class="small font-weight-bold text-center text-uppercase" style="opacity: 0.225">Click for full Privacy Review</p>
+          {{> reviews }}
+        </div>
+        <div class="col-lg-5 pl-xl-4 pr-xl-5 offset-lg-0">
+          <h5 class="mb-1 text-center" style="font-weight: 600">Trackers</h5>
+          <p class="small font-weight-bold text-center text-uppercase" style="opacity: 0.225">Click to view apps using tracker</p>
+          {{> trackers }}
+        </div>
+      </div>
+    </div>
+    
+    <div class="container mt-0 pb-4 pt-0 d-lg-none">
+      <div class="row">
+        <nav class="navbar sticky-top w-100 col-12 col-md-8 offset-md-2 px-md-5 col-sm-10 offset-sm-1 pt-2 px-sm-2" style="top: 58px; background-color: #e9ecef">
+          <ul class="nav nav-pills nav-fill w-100" id="myTab" role="tablist" style="border: 1px solid #3498db; border-radius:7px">
+            <li class="nav-item">
+              <a class="nav-link active" id="top-tab" data-toggle="tab" href="#app-reviews-tab" role="tab" aria-controls="app-reviews" aria-selected="true" onclick="window.scrollTo(0, $('#myTabContent').offset().top - 58 - 58)">App Reviews</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="worst-tab" data-toggle="tab" href="#trackers-tab" role="tab" aria-controls="trackers" aria-selected="false" onclick="window.scrollTo(0, $('#myTabContent').offset().top - 58 - 58)">Trackers</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="tab-content col-12 col-md-8 offset-md-2 px-md-5 col-sm-10 offset-sm-1 px-sm-2" style="padding-left: 10px; padding-right: 10px;" id="myTabContent">
+          <div class="tab-pane show active" id="app-reviews-tab" role="tabpanel" aria-labelledby="app-reviews-tab">
+            <p class="small font-weight-bold text-uppercase text-center py-1 my-0 pb-2" style="opacity: 0.225">Tap for full review</p>
+            {{> reviews }}
+          </div>
+          <div class="tab-pane" id="trackers-tab" role="tabpanel" aria-labelledby="trackers-tab">
+            <p class="small font-weight-bold text-uppercase text-center py-1 my-0 pb-2" style="opacity: 0.225">Tap to see apps using tracker</p>
+            {{> trackers }}
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/if}}
+
+  </div>
+  
+  <div class="text-center jumbotron jumbotron-fluid text-black mb-0 mt-0 pt-3 px-3" id="request">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8 offset-lg-2 py-4 rounded shadow bg-white">
+          <h2 class="display-5 font-weight-bold mb-0 pb-3 pt-2"><span class="highlighted-text">Request Review</span></h2>
+          <p class="lead mb-0">
+            Don't see an app you use here? Ask us to review it next.
+          </p>
+          <p class="mt-0 pt-3">
+            <a href="/how-it-works">Request Review</a>
+          </p>
+          <hr class="mt-4">
+          <h2 class="display-5 font-weight-bold mb-0 pb-3 pt-2"><span class="highlighted-text">Get Notified</span></h2>
+          <p class="lead mb-0">
+            New reviews posted weekly. Follow us on Twitter to get notified.
+          </p>
+          <p class="mt-0 pt-3">
+            <a href="/how-it-works"><i class="fa fa-twitter"></i> @privacy_review</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  {{> footer }}
+
+</body>
+
+{{> bootstrapjs}}

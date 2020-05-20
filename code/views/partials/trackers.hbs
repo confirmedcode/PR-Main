@@ -1,0 +1,16 @@
+{{#each trackers}}
+<div class="w-100 bg-white border-bottom shadow position-relative py-2 px-2 mb-0" style="height:128px;">
+  <div class="row">
+    <div class="col pt-3 pb-1 pl-5 pr-3">
+      <h5 class="d-block mr-1 mb-1" style="font-weight:600">{{this.displayName}}</h5>
+      {{#each this.categories}}
+        <p class="mb-0 ml-0 badge badge-secondary text-uppercase" style="opacity:0.5">{{this}}</p>
+      {{/each}}
+      <p class="mb-0 mt-1 text-muted pr-4" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><i>{{this.tagline}}</i></p>
+    </div>
+  </div>
+  <div class="pl-0 pt-2">
+    <a href="/?filter={{this.name}}" class="stretched-link px-0 py-0 mt-3 pl-1 font-weight-bold btn text-dark" style="opacity:0.5"><h1></h1></a>
+  </div>
+</div>
+{{/each}}
