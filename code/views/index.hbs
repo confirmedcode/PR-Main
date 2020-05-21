@@ -26,9 +26,9 @@
       <div class="container mt-0 pb-4 pt-2">
         <div class="row">
           <div class="col-lg-6 offset-lg-3 pl-xl-5 pr-xl-4">
-            <h5 class="mb-1 text-center" style="font-weight: 600">Apps Using <strong>"{{filteredTrackerDisplayName}}"</strong> Tracker</h5>
+            <h5 class="mb-1 text-center" style="font-weight: 600">Apps Using "{{filteredTrackerDisplayName}}" Tracker</h5>
             <p class="mt-0 pt-2 mb-1 text-center">
-               <a href="/" class="btn btn-outline-dark shadow zoom mx-auto mb-2" style="width:190px;">Show All Reviews</a>
+               <a href="/" class="btn btn-primary shadow zoom mx-auto mb-2" style="width:190px;">Show All Reviews</a>
             </p>
             {{> reviews }}
           </div>
@@ -84,20 +84,20 @@
     <div class="container">
       <div class="row">
         <div class="col-12 col-lg-8 offset-lg-2 py-4 rounded shadow bg-white">
-          <h2 class="display-5 font-weight-bold mb-0 pb-3 pt-2"><span class="highlighted-text">Request Review</span></h2>
-          <p class="lead mb-0">
-            Don't see an app you use here? Ask us to review it next.
-          </p>
-          <p class="mt-0 pt-3">
-            <a href="/how-it-works">Request Review</a>
-          </p>
-          <hr class="mt-4">
-          <h2 class="display-5 font-weight-bold mb-0 pb-3 pt-2"><span class="highlighted-text">Get Notified</span></h2>
+          <h2 class="display-5 font-weight-bold mb-0 pb-3 pt-2"><span class="text-muted">Get Notified</span></h2>
           <p class="lead mb-0">
             New reviews posted weekly. Follow us on Twitter to get notified.
           </p>
           <p class="mt-0 pt-3">
-            <a href="/how-it-works"><i class="fa fa-twitter"></i> @privacy_review</a>
+            <a href="https://twitter.com/privacy_review" target="_blank" class="btn btn-primary font-weight-bol" style="width: 200px"><i class="fa fa-twitter pr-1"></i> @Privacy_Review</a>
+          </p>
+          <hr class="mt-4">
+          <h2 class="display-5 font-weight-bold mb-0 pb-3 pt-2"><span class="text-muted">Request Review</span></h2>
+          <p class="lead mb-0">
+            Don't see an app you use here? Ask us to review it next.
+          </p>
+          <p class="mt-0 pt-3">
+            <a href="mailto:hi@{{DOMAIN}}?subject=Request%20Review&body=Please%20do%20a%20Privacy%20Review%20for%20this%20app%3A%20" class="btn btn-primary" style="width: 200px;"><i class="fa fa-envelope pr-1"></i> Request An App</a>
           </p>
         </div>
       </div>
