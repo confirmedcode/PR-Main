@@ -1,6 +1,9 @@
 {{#each reviews}}
 <div class="w-100 media bg-white border-bottom shadow position-relative py-2 px-2 mb-0" style="height:128px;">
   <img src="{{this.iconUrl}}" class="img-fluid mt-2 mx-2" style="border-radius: 20% !important; width: 70px">
+  {{#if this.ranking }}
+    <span class="d-block text-muted" style="font-size: 11px; font-weight: 600; position:absolute; top:13px; right:0px; padding-right: 7px; padding-left: 7px; padding-top: 2px; padding-bottom: 2px; background-color: #f1f5f8">{{this.ranking}}</span>
+  {{/if}}
   <div class="media-body pl-1 pr-1">
     <div class="row">
       <div class="col-12 pb-1 pt-1 pl-3">

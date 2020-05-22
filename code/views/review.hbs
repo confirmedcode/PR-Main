@@ -23,6 +23,9 @@
       <div class="col-xl-4 offset-xl-4 col-md-6 offset-md-3 pt-1">
         <div class="w-100 media bg-white shadow-lg position-relative py-2 px-2 mb-0">
           <img src="{{review.iconUrl}}" class="img-fluid mt-2 mx-2" style="border-radius: 20% !important; width: 70px">
+          {{#if review.ranking }}
+            <span class="d-block text-muted" style="font-size: 11px; font-weight: 600; position:absolute; top:13px; right:0px; padding-right: 7px; padding-left: 7px; padding-top: 2px; padding-bottom: 2px; background-color: #f1f5f8">{{review.ranking}}</span>
+          {{/if}}
           <div class="media-body pl-1 pr-1">
             <div class="row">
               <div class="col-12 pb-1 pt-1 pl-3">
@@ -49,9 +52,6 @@
             <div class="row">
               <div class="col-12 pb-1 pt-2">
                 <p class="mb-0 small text-muted">{{review.platforms}} Review on {{review.displayDate}}</p>
-                {{#if review.ranking}}
-                  <p class="mb-0 small text-muted">{{review.ranking}}</p>
-                {{/if}}
               </div>
             </div>
           </div>
@@ -72,37 +72,16 @@
 
           <h6 class="heading pb-1 text-muted"><strong>What personal data is collected?</strong></h6>
   
-          <div class="row mx-1 pb-3 bg-light rounded">
-            <div class="col-md-4 pt-3 pl-5">
-              <h6 class="heading pb-1"><strong>Required Info</strong></h6>
-              {{#if review.dataRequiredInfo}} 
-                {{#each review.dataRequiredInfo}}
-                <h6 class="pl-3 pb-1">{{this}}</h6>
-                {{/each}}
-              {{else}}
-              <h6 class="text-muted pl-3 pb-1">None Found</h6>
-              {{/if}}
-            </div>
-            <div class="col-md-4 pt-3 pl-5">
-              <h6 class="heading pb-1"><strong>Required Access</strong></h6>
-              {{#if review.dataRequiredAccess}}
-                {{#each review.dataRequiredAccess}}
-                <h6 class="pl-3 pb-1">{{this}}</h6>
-                {{/each}}
-              {{else}}
-              <h6 class="text-muted pl-3 pb-1">None Found</h6>
-              {{/if}}
-            </div>
-            <div class="col-md-4 pt-3 pl-5">
-              <h6 class="heading pb-1"><strong>Optional</strong></h6>
-              {{#if review.dataOptional}}
-                {{#each review.dataOptional}}
-                <h6 class="pl-3 pb-1">{{this}}</h6>
-                {{/each}}
-              {{else}}
-              <h6 class="text-muted pl-3 pb-1">None</h6>
-              {{/if}}
-            </div>
+          <div class="row mx-1 pb-3 pt-4 px-5 bg-light rounded">
+            {{#if review.dataRequiredInfo}} 
+              {{#each review.dataRequiredInfo}}
+              <div class="col-sm-6 col-lg-4 pt-1">
+                <h6 class="pl-md-4 pb-1">{{this}}</h6>
+              </div>
+              {{/each}}
+            {{else}}
+            <h6 class="text-muted pl-3 pb-1">None Found</h6>
+            {{/if}}
           </div>
   
         </div>
