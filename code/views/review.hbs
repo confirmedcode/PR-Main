@@ -19,43 +19,43 @@
   </div>
 
   <div class="container text-left">
-    <div class="row pt-4 no-gutters">
-      <div class="col-xl-4 offset-xl-4 col-md-6 offset-md-3 pt-1">
-        <div class="w-100 media bg-white shadow-lg position-relative py-2 px-2 mb-0">
-          <img src="{{review.iconUrl}}" class="img-fluid mt-2 mx-2" style="border-radius: 20% !important; width: 70px">
-          {{#if review.ranking }}
-            <span class="d-block text-muted" style="font-size: 11px; font-weight: 600; position:absolute; top:13px; right:0px; padding-right: 7px; padding-left: 7px; padding-top: 2px; padding-bottom: 2px; background-color: #f1f5f8">{{review.ranking}}</span>
-          {{/if}}
-          <div class="media-body pl-1 pr-1">
+    
+    <div class="row">
+      <div class="col-lg-6 offset-lg-3 mt-4 mb-1 bg-white shadow rounded px-md-4 py-md-2">
+
+        <div class="w-100 media position-relative py-2 pt-3 mb-0">
+          <img src="{{review.iconUrl}}" class="img-fluid mt-2 mr-2 mr-md-4 ml-md-3" style="border-radius: 20% !important; width: 70px">
+          <div class="media-body pl-1 pr-1 pt-0">
             <div class="row">
               <div class="col-12 pb-1 pt-1 pl-3">
                 <h5 class="mt-0 pb-0 mb-0 pl-0 font-weight-bold">{{review.displayName}}</h5>
-                <p class="text-muted mb-0 pl-0 pb-1 small font-weight-bold">{{review.tagline}}</p>
-              </div>
-            </div>
-            <div class="row py-0 mb-1 text-center no-gutters" style="background-color:#f1f5f8">
-              <div class="col-4 pb-2 pt-1">
-                <span class="font-weight-bold">{{review.numTrackers}}</span>
-                <span class="d-block small text-muted" style="line-height: 10px;"><small><strong>TRACKERS</strong></small></span>
-              </div>
-              <div class="col-4 pb-2 pt-1">
-                <span class="font-weight-bold">224</span>
-                <span class="d-block small text-muted" style="line-height: 10px;"><small><strong>ATTEMPTS</strong></small></span>
-              </div>
-              <div class="col-4 pb-2 pt-1">
-                <div class="Ribbon-small px-1 py-1 px-sm-2" style="background-color: {{lookup @root/RATING_COLOR review.rating}} !important; margin-top: -4.5px; opacity: 1; position:absolute; top:0; right: 0px">
-                    <p class="mb-0" style="font-size: 24px; line-height: 30px;"><strong>{{review.rating}}</strong></p>
-                    <p class="mb-0 small pb-1 px-1 font-weight-bold" style="line-height: 14px; font-weight: 600; letter-spacing: 0.5px;">RATING</p>
-                </div>
+                <p class="text-muted mb-0 pl-0 pb-0 small font-weight-bold">{{review.tagline}}</p>
+                {{#if review.ranking }}
+                  <span class="d-inline-block bg-light text-muted" style="font-size: 11px; font-weight: 600; padding-right: 7px; padding-left: 7px; padding-top: 2px; padding-bottom: 2px;">{{review.ranking}}</span>
+                {{/if}}
               </div>
             </div>
             <div class="row">
-              <div class="col-12 pb-1 pt-2">
-                <p class="mb-0 small text-muted">{{review.platforms}} Review on {{review.displayDate}}</p>
+              <div class="col-12 pb-1 pt-0">
+                <p class="mb-0 text-muted" style="font-size: 11px;">{{review.platforms}} Review on {{review.displayDate}}</p>
               </div>
             </div>
           </div>
+          
+          <div class="px-3 py-2" style="background-color: {{lookup @root/RATING_COLOR review.rating}} !important; text-align:center; font-weight: 600; letter-spacing: 1px; color: black;">
+            <div style="line-height: 15px; font-size: 13px;">PRIVACY</div>
+            <div style="line-height: 15px; font-size: 13px;">RATING</div>
+            <div style="font-size: 30px; margin-top: 0px; line-height: 32px; padding-top:3px"><strong>{{review.rating}}</strong></div>
+          </div>
         </div>
+        
+        <p class="pt-1">
+          {{review.ratingReason}}
+        </p>
+        <p>
+          {{review.displayName}}'s <a href="#" data-toggle="modal" data-target="#ratingCriteriaModal">Privacy Rating</a> is <strong>{{review.rating}}</strong>. We found {{review.numTrackers}} different third-party trackers in the {{review.displayName}} app, and there were {{review.numAttempts}} attempted tracking connections detected during our test.
+        </p>
+      
       </div>
     </div>
     
@@ -72,11 +72,11 @@
 
           <h6 class="heading pb-1 text-muted"><strong>What personal data is collected?</strong></h6>
   
-          <div class="row mx-1 pb-3 pt-4 px-5 bg-light rounded">
+          <div class="row mx-1 py-md-3 py-2 px-md-5 bg-light rounded">
             {{#if review.dataRequiredInfo}} 
               {{#each review.dataRequiredInfo}}
               <div class="col-sm-6 col-lg-4 pt-1">
-                <h6 class="pl-md-4 pb-1">{{this}}</h6>
+                <h6 class="pl-md-4 pb-md-1">{{this}}</h6>
               </div>
               {{/each}}
             {{else}}
@@ -90,7 +90,7 @@
 
           <h6 class="heading pb-1 text-muted"><strong>Which trackers were found?</strong></h6>
   
-          <div class="row mx-1 pb-3 px-2 bg-light rounded">
+          <div class="row mx-1 pb-3 px-md-4 bg-light rounded">
             {{#if review.trackers}}
               {{#each review.trackers}}
                 <div class="col-md-6 pt-3 pb-1">
@@ -98,14 +98,13 @@
                 {{#each this.categories}}
                   <p class="d-inline-block mb-0 ml-0 badge badge-secondary text-uppercase" style="opacity:0.5">{{this}}</p>
                 {{/each}}
-                <p class="mb-0"><i>"{{this.tagline}}"</i></p>
-                <p class="pl-2 mb-0 pt-1 small text-muted"><strong>Connections</strong></p>
-                <ul class="list-unstyled pl-3 mb-0 small text-muted">
+                <p class="mb-0"><i>{{this.tagline}}</i></p>
+                {{!-- <ul class="list-unstyled pl-2 mb-0 small text-muted">
                   {{#each this.connections}}
                     <li>&rarr; <code class="text-muted">{{this}}</code></li>
                   {{/each}}
-                </ul>
-                <a data-toggle="collapse" class="mt-0 ml-2 pl-2 pr-1 py-1 mb-0 badge badge-warning" href="#{{this.name}}More" role="button" aria-expanded="false" aria-controls="{{this.name}}More">Show Collected Data &rsaquo;</a>
+                </ul> --}}
+                <a data-toggle="collapse" class="mt-1 ml-0 pl-2 pr-1 py-1 mb-1 badge badge-warning" href="#{{this.name}}More" role="button" aria-expanded="false" aria-controls="{{this.name}}More">Show Collected Data &rsaquo;</a>
                 <p class="pl-3 small mb-0 collapse pt-1" id="{{this.name}}More"> 
                   {{this.collectedData}}
                 </p>
@@ -140,84 +139,63 @@
               <p class="font-weight-bold mb-1">
                 How was tracker testing conducted?
               </p>
-              <p class="ml-4">
+              <p class="ml-0">
                 Tested using <a href="https://lockdownhq.com" target=_blank>Lockdown</a> {{review.testMethod}}
               </p>
               <p class="font-weight-bold mb-1">
                 How many total tracking attempts?
               </p>
-              <p class="ml-4">
+              <p class="ml-0">
                 {{review.testDescription}}
               </p>
               <p class="font-weight-bold mb-1">
                 How many tracking attempts each time the app is opened?
               </p>
-              <p class="ml-4">
+              <p class="ml-0">
                 {{review.testOpen}}
               </p>
               <p class="font-weight-bold mb-1">
                 Did user give consent to tracking before tracking started?
               </p>
-              <p class="ml-4">
+              <p class="ml-0">
                 {{review.testConsent}}
               </p>
+              {{#if review.testBackground}}
               <p class="font-weight-bold mb-1">
                 Any background tracking when app isn't open?
               </p>
-              <p class="ml-4">
+              <p class="ml-0">
                 {{review.testBackground}}
               </p>
+              {{/if}}
+              {{#if review.testNotes}}
               <p class="font-weight-bold mb-1">
-                Other important notes?
+                Other important red flags or notes?
               </p>
-              <p class="ml-4">
+              <p class="ml-0">
                 {{review.testNotes}}
               </p>
+              {{/if}}
             </div>
     
           </div>
   
         </div>
-
-        <div class="pt-4 mt-2">
-
-          <h6 class="heading pb-1 text-muted"><strong>Conclusion</strong></h6>
-  
-          <div class="row mx-1 pb-3 bg-light rounded">
-            <div class="col-md-3 text-center">
-              <div class="Ribbon ml-4 mx-auto" style="background-color: {{lookup @root/RATING_COLOR review.rating}} !important; margin-bottom: 35px;">
-                <div class="Ribbon-inner text-dark" style="background-color: {{lookup @root/RATING_COLOR review.rating}} !important; text-align:center; font-weight: 600; letter-spacing: 2px;">
-                  <div class="ribboninnerbefore border-dark" style="border-left-color: transparent !important; border-right-color: transparent !important; border-bottom-color: transparent !important;"></div>
-                  <div>PRIVACY</div>
-                  <div>RATING</div>
-                  <div style="font-size: 48px; margin-top: 0px"><strong>{{review.rating}}</strong></div>
-                  <div class="ribboninnerafter" style="border-top-color: {{lookup @root/RATING_COLOR review.rating}} !important; border-left-color: transparent !important; border-right-color: transparent !important; border-bottom-color: transparent !important;"></div>
-                </div>
-                <div class="ribbonafter" style="border-top-color: {{lookup @root/RATING_COLOR review.rating}} !important; border-left-color: transparent !important; border-right-color: transparent !important; border-bottom-color: transparent !important;"></div>
-              </div>
+        <div class="row mt-5 mb-3">
+          <div class="col text-center">
+            <p class="mb-3">
+              Please share this review if you found it useful!
+            </p>
+            <div class="mx-auto text-center pt-0">
+              <a href="/" class="btn zoom btn-primary font-weight-bold mx-1 mb-2" style="width:150px;">See All Reviews</a>
+              <a href="/#request" class="btn zoom btn-primary font-weight-bold mx-1 mb-2" style="width:150px;">Request Review</a>
             </div>
-
-            <div class="col-md-9 text-left py-2 pt-3">
-              {{#if review.summaryUrl}}
-              <img class="img-fluid mb-2" src="{{review.summaryUrl}}"/>
-              {{/if}}
-              <p class="pt-2">
-                {{review.displayName}} gets a Privacy Rating of {{review.rating}}. This rating is based on factors like number of trackers, popularity, consent, and more. Learn about the <a href="#" data-toggle="modal" data-target="#ratingCriteriaModal">rating system</a>.
-              </p>
-              <p>
-                Please share this review if you found it useful!
-              </p>
-              <div class="mx-auto text-center pt-1">
-                <a href="/" class="btn shadow-sm btn-outline-dark font-weight-bold mx-1 mb-2" style="width:160px;">See All Reviews</a>
-                <a href="/#request" class="btn shadow-sm btn-outline-dark font-weight-bold mx-1 mb-2" style="width:160px;">Request Review</a>
-              </div>
-            </div>
-    
-          </div>
-  
+          </div>    
         </div>
         
       </div>
+     
+      
     </div>
   </div>
   
