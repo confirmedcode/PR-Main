@@ -32,10 +32,10 @@
     
     <div class="row mb-4">
       
-      <div class="col-lg-8 offset-lg-2 mt-4 mb-1 bg-white shadow-sm px-md-4 py-md-2">
+      <div class="col-lg-10 offset-lg-1 mt-4 mb-1 bg-white shadow-sm px-md-4 py-md-2">
 
         <div class="w-100 media position-relative py-2 pt-3 mb-0">
-          <img src="{{review.iconUrl}}" class="img-fluid mt-2 mr-2 mr-md-4 ml-md-0" style="border-radius: 20% !important; width: 70px">
+          <img src="{{review.iconUrl}}" class="img-fluid mt-2 mr-2 mr-md-4 ml-md-0 ml-lg-5" style="border-radius: 20% !important; width: 70px">
           <div class="media-body pl-1 pr-1 pt-0">
             <div class="row">
               <div class="col-12 pb-1 pt-1 pl-3">
@@ -53,7 +53,7 @@
             </div>
           </div>
           
-          <div class="row my-0 mr-0 pr-2 mb-1 mt-3 text-center d-none d-md-flex" style="background-color:#f1f5f8; width: 270px;">
+          <div class="row my-0 mr-0 pr-2 mb-1 mt-3 text-center d-none d-md-flex mr-lg-5" style="background-color:#f1f5f8; width: 270px;">
             <div class="col-4 pb-3 pt-2">
               <span class="font-weight-bold">{{review.numTrackers}}</span>
               <span class="d-block small text-muted" style="line-height: 10px;"><small><strong>TRACKERS</strong></small></span>
@@ -86,7 +86,7 @@
           {{review.displayName}}'s <a href="#" data-toggle="modal" data-target="#ratingCriteriaModal">Privacy Rating</a> is <strong>{{review.rating}}</strong>. We found {{review.numTrackers}} different third-party trackers in the {{review.displayName}} app, and there were {{review.numAttempts}} attempted tracking connections detected during our test.
         </p>
         {{#if review.summaryUrl}}
-          <img class="img-fluid mb-2" src="{{review.summaryUrl}}"/>
+          <img class="img-fluid mb-3" src="{{review.summaryUrl}}"/>
         {{/if}}
       
       </div>
