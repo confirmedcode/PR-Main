@@ -69,8 +69,66 @@
         {{/if}}
         
         <div class="pt-3 mt-2">
+  
+          <div class="row mx-1 px-2 pb-3 bg-light rounded">
+            {{#if review.screenshotUrl}}
+            <div class="col-md-4 text-center py-2 pt-4">
+              <img src="{{review.screenshotUrl}}" class="img-fluid rounded" style="max-height: 110px; min-height: 360px;">
+              <p class="small mt-2 mb-0 text-muted">Blocked tracking attempts.</p>
+            </div>
+            <div class="col-md-8 pt-4">
+            {{else}}
+            <div class="col-md-12 pt-4">
+            {{/if}}
+              <p class="font-weight-bold mb-1">
+                How was tracker testing done?
+              </p>
+              <p class="ml-0">
+                Tested using <a href="https://lockdownhq.com" target=_blank>Lockdown</a> {{review.testMethod}}
+              </p>
+              <p class="font-weight-bold mb-1">
+                What was done during the test?
+              </p>
+              <p class="ml-0">
+                {{review.testDescription}}
+              </p>
+              <p class="font-weight-bold mb-1">
+                How many tracking attempts each time the app is opened?
+              </p>
+              <p class="ml-0">
+                {{review.testOpen}}
+              </p>
+              <p class="font-weight-bold mb-1">
+                Did user give consent to tracking before tracking started?
+              </p>
+              <p class="ml-0">
+                {{review.testConsent}}
+              </p>
+              {{#if review.testBackground}}
+              <p class="font-weight-bold mb-1">
+                Any background tracking when app isn't open?
+              </p>
+              <p class="ml-0">
+                {{review.testBackground}}
+              </p>
+              {{/if}}
+              {{#if review.testNotes}}
+              <p class="font-weight-bold mb-1">
+                Other important red flags or notes?
+              </p>
+              <p class="ml-0">
+                {{review.testNotes}}
+              </p>
+              {{/if}}
+            </div>
+    
+          </div>
+  
+        </div>
+        
+        <div class="pt-3 mt-2">
 
-          <h6 class="heading pb-1 text-muted"><strong>What personal data is collected?</strong></h6>
+          <h6 class="heading pb-1 text-muted"><strong>What personal data is collected by this app?</strong></h6>
   
           <div class="row mx-1 py-md-3 py-2 px-md-5 bg-light rounded">
             {{#if review.dataRequiredInfo}} 
@@ -113,7 +171,7 @@
             {{else}}
             <div class="col-md-12 py-3">
               <h5 class="text-center mb-0 pt-3 pb-0 text-muted" style="font-weight: 600">
-                🎉 No Trackers Found 🎉
+                No Trackers Found
               </h3>
             </div>
             {{/if}}
@@ -121,66 +179,7 @@
           </div>
   
         </div>
-
-        <div class="pt-4 mt-2">
-
-          <h6 class="heading pb-1 text-muted"><strong>Details Of Tracking Activity</strong></h6>
-  
-          <div class="row mx-1 px-2 pb-3 bg-light rounded">
-            {{#if review.screenshotUrl}}
-            <div class="col-md-4 text-center py-2 pt-4">
-              <img src="{{review.screenshotUrl}}" class="img-fluid rounded" style="max-height: 110px; min-height: 360px;">
-              <p class="small mt-2 mb-0 text-muted">Blocked tracking attempts.</p>
-            </div>
-            <div class="col-md-8 pt-4">
-            {{else}}
-            <div class="col-md-12 pt-4">
-            {{/if}}
-              <p class="font-weight-bold mb-1">
-                How was tracker testing conducted?
-              </p>
-              <p class="ml-0">
-                Tested using <a href="https://lockdownhq.com" target=_blank>Lockdown</a> {{review.testMethod}}
-              </p>
-              <p class="font-weight-bold mb-1">
-                How many total tracking attempts?
-              </p>
-              <p class="ml-0">
-                {{review.testDescription}}
-              </p>
-              <p class="font-weight-bold mb-1">
-                How many tracking attempts each time the app is opened?
-              </p>
-              <p class="ml-0">
-                {{review.testOpen}}
-              </p>
-              <p class="font-weight-bold mb-1">
-                Did user give consent to tracking before tracking started?
-              </p>
-              <p class="ml-0">
-                {{review.testConsent}}
-              </p>
-              {{#if review.testBackground}}
-              <p class="font-weight-bold mb-1">
-                Any background tracking when app isn't open?
-              </p>
-              <p class="ml-0">
-                {{review.testBackground}}
-              </p>
-              {{/if}}
-              {{#if review.testNotes}}
-              <p class="font-weight-bold mb-1">
-                Other important red flags or notes?
-              </p>
-              <p class="ml-0">
-                {{review.testNotes}}
-              </p>
-              {{/if}}
-            </div>
-    
-          </div>
-  
-        </div>
+        
         <div class="row mt-5 mb-3">
           <div class="col text-center">
             <p class="mb-3">

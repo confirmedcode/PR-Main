@@ -78,6 +78,10 @@ app.get("/health", (request, response, next) => {
   });
 });
 
+app.get("/privacy", (request, response, next) => {
+  response.render("privacy");
+});
+
 // Controllers
 app.use("/", require("./controllers/pages-controller.js"));
 
