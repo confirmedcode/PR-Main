@@ -1,6 +1,6 @@
 {{> header title=review.displayName}}
   
-<body class="text-center bg-white">
+<body class="text-center bg-light">
   
   {{> nav }}
 
@@ -20,11 +20,22 @@
 
   <div class="container text-left">
     
+    {{#if review.disclaimer}}
     <div class="row">
-      <div class="col-lg-6 offset-lg-3 mt-4 mb-1 bg-white shadow rounded px-md-4 py-md-2">
+      <div class="col-lg-8 offset-lg-2">
+        <div class="mt-4 alert alert-info" role="alert">
+          {{review.disclaimer}}
+        </div>
+      </div>
+    </div>
+    {{/if}}
+    
+    <div class="row mb-4">
+      
+      <div class="col-lg-8 offset-lg-2 mt-4 mb-1 bg-white shadow-sm px-md-4 py-md-2">
 
         <div class="w-100 media position-relative py-2 pt-3 mb-0">
-          <img src="{{review.iconUrl}}" class="img-fluid mt-2 mr-2 mr-md-4 ml-md-3" style="border-radius: 20% !important; width: 70px">
+          <img src="{{review.iconUrl}}" class="img-fluid mt-2 mr-2 mr-md-4 ml-md-0" style="border-radius: 20% !important; width: 70px">
           <div class="media-body pl-1 pr-1 pt-0">
             <div class="row">
               <div class="col-12 pb-1 pt-1 pl-3">
@@ -36,17 +47,36 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-12 pb-1 pt-0">
+              <div class="col-12 pb-2 pt-0">
                 <p class="mb-0 text-muted" style="font-size: 11px;">{{review.platforms}} Review on {{review.displayDate}}</p>
               </div>
             </div>
           </div>
           
-          <div class="px-3 py-2" style="background-color: {{lookup @root/RATING_COLOR review.rating}} !important; text-align:center; font-weight: 600; letter-spacing: 1px; color: black;">
+          <div class="row my-0 mr-0 pr-2 mb-1 mt-3 text-center d-none d-md-flex" style="background-color:#f1f5f8; width: 270px;">
+            <div class="col-4 pb-3 pt-2">
+              <span class="font-weight-bold">{{review.numTrackers}}</span>
+              <span class="d-block small text-muted" style="line-height: 10px;"><small><strong>TRACKERS</strong></small></span>
+            </div>
+            <div class="col-4 pb-3 pt-2">
+              <span class="font-weight-bold">{{review.numAttempts}}</span>
+              <span class="d-block small text-muted" style="line-height: 10px;"><small><strong>ATTEMPTS</strong></small></span>
+            </div>
+            <div class="col-4 pb-2 pt-1">
+              <div class="px-3 py-2 px-sm-2" style="background-color: {{lookup @root/RATING_COLOR review.rating}} !important; margin-top: -12px; opacity: 1; position:absolute; top:0; right: 0px; width: 92px; font-weight: 600; letter-spacing: 1px; color: black;">
+                  <div style="line-height: 15px; font-size: 13px;">PRIVACY</div>
+                  <div style="line-height: 15px; font-size: 13px;">RATING</div>
+                  <div style="font-size: 30px; margin-top: 0px; line-height: 32px; padding-top:3px"><strong>{{review.rating}}</strong></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="px-3 py-2 d-block d-md-none" style="background-color: {{lookup @root/RATING_COLOR review.rating}} !important; text-align:center; font-weight: 600; letter-spacing: 1px; color: black;">
             <div style="line-height: 15px; font-size: 13px;">PRIVACY</div>
             <div style="line-height: 15px; font-size: 13px;">RATING</div>
             <div style="font-size: 30px; margin-top: 0px; line-height: 32px; padding-top:3px"><strong>{{review.rating}}</strong></div>
           </div>
+          
         </div>
         
         <p class="pt-1">
@@ -62,143 +92,137 @@
       </div>
     </div>
     
-    <div class="row">
-      <div class="col-lg-10 offset-lg-1 pt-2 mb-5">
-    
-        {{#if review.disclaimer}}
-            <div class="mt-4 alert alert-info" role="alert">
-              {{review.disclaimer}}
-            </div>
-        {{/if}}
+    <div class="row mb-4">
+      <div class="col-lg-10 offset-lg-1 pt-2 bg-white shadow-sm">
         
-        <div class="pt-3 mt-2">
-  
-          <div class="row mx-1 px-2 pb-3 bg-light rounded">
-            {{#if review.screenshotUrl}}
-            <div class="col-md-4 text-center py-2 pt-4">
-              <img src="{{review.screenshotUrl}}" class="img-fluid rounded" style="max-height: 110px; min-height: 360px;">
-              <p class="small mt-2 mb-0 text-muted">Blocked tracking attempts.</p>
-            </div>
-            <div class="col-md-8 pt-4">
-            {{else}}
-            <div class="col-md-12 pt-4">
-            {{/if}}
-              <p class="font-weight-bold mb-1">
-                How was tracker testing done?
-              </p>
-              <p class="ml-0">
-                Tested using <a href="https://lockdownhq.com" target=_blank>Lockdown</a> {{review.testMethod}}
-              </p>
-              <p class="font-weight-bold mb-1">
-                What was done during the test?
-              </p>
-              <p class="ml-0">
-                {{review.testDescription}}
-              </p>
-              <p class="font-weight-bold mb-1">
-                How many tracking attempts each time the app is opened?
-              </p>
-              <p class="ml-0">
-                {{review.testOpen}}
-              </p>
-              <p class="font-weight-bold mb-1">
-                Did user give consent to tracking before tracking started?
-              </p>
-              <p class="ml-0">
-                {{review.testConsent}}
-              </p>
-              {{#if review.testBackground}}
-              <p class="font-weight-bold mb-1">
-                Any background tracking when app isn't open?
-              </p>
-              <p class="ml-0">
-                {{review.testBackground}}
-              </p>
-              {{/if}}
-              {{#if review.testNotes}}
-              <p class="font-weight-bold mb-1">
-                Other important red flags or notes?
-              </p>
-              <p class="ml-0">
-                {{review.testNotes}}
-              </p>
-              {{/if}}
-            </div>
-    
-          </div>
-  
-        </div>
-        
-        <div class="pt-3 mt-2">
+        <h6 class="pt-3 mb-0 text-muted text-center" style="font-weight: 600; opacity:0.6"><strong>Testing Results</strong></h6>
 
-          <h6 class="heading pb-1 text-muted"><strong>What personal data is collected by this app?</strong></h6>
-  
-          <div class="row mx-1 py-md-3 py-2 px-md-5 bg-light rounded">
-            {{#if review.dataRequiredInfo}} 
-              {{#each review.dataRequiredInfo}}
-              <div class="col-sm-6 col-lg-4 pt-1">
-                <h6 class="pl-md-4 pb-md-1">{{this}}</h6>
-              </div>
-              {{/each}}
-            {{else}}
-            <h6 class="text-muted pl-3 pb-1">None Found</h6>
-            {{/if}}
+        <div class="row px-0 pb-3 pt-3">
+          {{#if review.screenshotUrl}}
+          <div class="col-md-4 text-center py-2">
+            <img src="{{review.screenshotUrl}}" class="img-fluid rounded" style="max-height: 110px; min-height: 360px;">
+            <p class="small mt-2 mb-0 text-muted">Blocked tracking attempts.</p>
           </div>
-  
-        </div>
-
-        <div class="pt-4 mt-2">
-
-          <h6 class="heading pb-1 text-muted"><strong>Which trackers were found?</strong></h6>
-  
-          <div class="row mx-1 pb-3 px-md-4 bg-light rounded">
-            {{#if review.trackers}}
-              {{#each review.trackers}}
-                <div class="col-md-6 pt-3 pb-1">
-                <h5 class="d-inline-block font-weight-bold mr-1 mb-1" style="vertical-align: top;">{{this.displayName}}</h5>
-                {{#each this.categories}}
-                  <p class="d-inline-block mb-0 ml-0 badge badge-secondary text-uppercase" style="opacity:0.5">{{this}}</p>
-                {{/each}}
-                <p class="mb-0"><i>{{this.tagline}}</i></p>
-                {{!-- <ul class="list-unstyled pl-2 mb-0 small text-muted">
-                  {{#each this.connections}}
-                    <li>&rarr; <code class="text-muted">{{this}}</code></li>
-                  {{/each}}
-                </ul> --}}
-                <a data-toggle="collapse" class="mt-1 ml-0 pl-2 pr-1 py-1 mb-1 badge badge-warning" href="#{{this.name}}More" role="button" aria-expanded="false" aria-controls="{{this.name}}More">Show Collected Data &rsaquo;</a>
-                <p class="pl-3 small mb-0 collapse pt-1" id="{{this.name}}More"> 
-                  {{this.collectedData}}
-                </p>
-                </div>
-              {{/each}}
-            {{else}}
-            <div class="col-md-12 py-3">
-              <h5 class="text-center mb-0 pt-3 pb-0 text-muted" style="font-weight: 600">
-                No Trackers Found
-              </h3>
-            </div>
-            {{/if}}
-    
-          </div>
-  
-        </div>
-        
-        <div class="row mt-5 mb-3">
-          <div class="col text-center">
-            <p class="mb-3">
-              Please share this review if you found it useful!
+          <div class="col-md-8">
+          {{else}}
+          <div class="col-md-12">
+          {{/if}}
+            <p class="font-weight-bold mb-1">
+              How was tracker testing done?
             </p>
-            <div class="mx-auto text-center pt-0">
-              <a href="/" class="btn zoom btn-primary font-weight-bold mx-1 mb-2" style="width:150px;">See All Reviews</a>
-              <a href="/#request" class="btn zoom btn-primary font-weight-bold mx-1 mb-2" style="width:150px;">Request Review</a>
-            </div>
-          </div>    
+            <p class="ml-0">
+              Tested using <a href="https://lockdownhq.com" target=_blank>Lockdown</a> {{review.testMethod}}
+            </p>
+            <p class="font-weight-bold mb-1">
+              What was done during the test?
+            </p>
+            <p class="ml-0">
+              {{review.testDescription}}
+            </p>
+            <p class="font-weight-bold mb-1">
+              How many tracking attempts each time the app is opened?
+            </p>
+            <p class="ml-0">
+              {{review.testOpen}}
+            </p>
+            <p class="font-weight-bold mb-1">
+              Did user give consent to tracking before tracking started?
+            </p>
+            <p class="ml-0">
+              {{review.testConsent}}
+            </p>
+            {{#if review.testBackground}}
+            <p class="font-weight-bold mb-1">
+              Any background tracking when app isn't open?
+            </p>
+            <p class="ml-0">
+              {{review.testBackground}}
+            </p>
+            {{/if}}
+            {{#if review.testNotes}}
+            <p class="font-weight-bold mb-1">
+              Other important red flags or notes?
+            </p>
+            <p class="ml-0">
+              {{review.testNotes}}
+            </p>
+            {{/if}}
+          </div>
+
         </div>
         
       </div>
-     
+    </div> <!-- row -->
+    
+    <div class="row mb-4">
+      <div class="col-lg-10 offset-lg-1 pt-2 bg-white shadow-sm">
+        
+        <h6 class="pt-3 mb-0 text-muted text-center" style="font-weight: 600; opacity:0.6"><strong>Personal Data Collected</strong></h6>
+    
+        <div class="row mx-1 py-md-3 py-2 px-md-5 mb-2">
+          {{#if review.dataRequiredInfo}} 
+            {{#each review.dataRequiredInfo}}
+            <div class="col-sm-6 col-lg-4 pt-1">
+              <h6 class="pl-md-4 pb-md-1">{{this}}</h6>
+            </div>
+            {{/each}}
+          {{else}}
+          <h6 class="text-muted pl-3 pb-1">None Found</h6>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-lg-10 offset-lg-1 pt-2 bg-white shadow-sm">
+        
+        <h6 class="pt-3 mb-0 text-muted text-center" style="font-weight: 600; opacity:0.6"><strong>Trackers Found</strong></h6>
+        
+        <div class="row mx-1 pb-4 px-md-4">
+          {{#if review.trackers}}
+            {{#each review.trackers}}
+              <div class="col-md-6 pt-3 pb-1">
+              <h5 class="d-inline-block font-weight-bold mr-1 mb-1" style="vertical-align: top;">{{this.displayName}}</h5>
+              {{#each this.categories}}
+                <p class="d-inline-block mb-0 ml-0 badge badge-secondary text-uppercase" style="opacity:0.5">{{this}}</p>
+              {{/each}}
+              <p class="mb-0"><i>{{this.tagline}}</i></p>
+              {{!-- <ul class="list-unstyled pl-2 mb-0 small text-muted">
+                {{#each this.connections}}
+                  <li>&rarr; <code class="text-muted">{{this}}</code></li>
+                {{/each}}
+              </ul> --}}
+              <a data-toggle="collapse" class="mt-1 ml-0 pl-2 pr-1 py-1 mb-1 badge badge-warning" href="#{{this.name}}More" role="button" aria-expanded="false" aria-controls="{{this.name}}More">Show Collected Data &rsaquo;</a>
+              <p class="pl-3 small mb-0 collapse pt-1" id="{{this.name}}More"> 
+                {{this.collectedData}}
+              </p>
+              </div>
+            {{/each}}
+          {{else}}
+          <div class="col-md-12 py-3">
+            <h5 class="text-center mb-0 pt-3 pb-0 text-muted" style="font-weight: 600">
+              No Trackers Found
+            </h3>
+          </div>
+          {{/if}}
+        </div>
+        
+      </div>
       
     </div>
+    
+    <div class="row mt-4 pt-2 pb-1 mb-5">
+      <div class="col text-center">
+        <p class="mb-3">
+          Please share this review if you found it useful!
+        </p>
+        <div class="mx-auto text-center pt-0">
+          <a href="/" class="btn zoom btn-primary font-weight-bold mx-1 mb-2" style="width:150px;">See All Reviews</a>
+          <a href="mailto:hi@{{DOMAIN}}?subject=Request%20Review&body=Please%20do%20a%20Privacy%20Review%20for%20this%20app%3A%20" class="btn zoom btn-primary font-weight-bold mx-1 mb-2" style="width:150px;">Request Review</a>
+        </div>
+      </div>    
+    </div>
+    
   </div>
   
   {{> footer }}
