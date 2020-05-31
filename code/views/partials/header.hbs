@@ -30,6 +30,8 @@
 	<meta property="og:url" content="https://privacyreview.co">
   {{#if metaimg }}
 	<meta property="og:image" content="{{metaimg}}">
+  {{ else if reviewdata }}
+  <meta property="og:image" content="{{S3_BUCKET}}/images/preview-rating-{{reviewdata.rating}}.png">
   {{ else }}
 	<meta property="og:image" content="{{S3_BUCKET}}/images/preview.png">
   {{/if}}
@@ -49,6 +51,8 @@
   {{/if}}
   {{#if metaimg }}
 	<meta property="twitter:image" content="{{metaimg}}">
+  {{ else if reviewdata }}
+  <meta property="og:image" content="{{S3_BUCKET}}/images/preview-rating-{{reviewdata.rating}}.png">
   {{ else }}
 	<meta property="twitter:image" content="{{S3_BUCKET}}/images/preview.png">
   {{/if}}
