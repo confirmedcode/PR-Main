@@ -1,12 +1,12 @@
 {{#each trackers}}
-<div class="w-100 bg-white border-bottom shadow position-relative py-2 px-2 mb-0" style="height:128px;">
+<div class="w-100 bg-white border-bottom shadow position-relative py-0 px-2 mb-0" style="height:64px;">
   <div class="row">
-    <div class="col pt-3 pb-1 pl-5 pr-3">
-      <h5 class="d-block mr-1 mb-1" style="font-weight:600">{{this.displayName}}</h5>
+    <div class="col pt-2 pb-1 px-4">
+      <h6 class="d-inline-block mr-1 mb-1 pt-1 pl-2" style="font-weight:600">{{this.displayName}}</h6>
       {{#each this.categories}}
-        <p class="mb-0 ml-0 badge badge-secondary text-uppercase" style="opacity:0.5">{{this}}</p>
+        <p class="mb-0 ml-1 mt-1 badge badge-secondary text-uppercase d-inline-block float-right" style="opacity:0.5">{{this}}</p>
       {{/each}}
-      <p class="mb-0 mt-1 text-muted pr-4" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><i>{{this.tagline}}</i></p>
+      <p class="mb-0 mt-0 text-muted pr-4 small pl-2" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><i>{{this.tagline}}</i></p>
     </div>
   </div>
   <div class="pl-0 pt-2">
