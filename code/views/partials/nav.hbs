@@ -44,19 +44,21 @@
 </nav>
 
 <div class="modal fade text-left" id="whatAreTrackersModal" tabindex="-1" role="dialog" aria-labelledby="whatAreTrackersModal" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-body">
-        <img class="img-fluid w-100 py-1 pt-2" src="{{S3_BUCKET}}/images/tracker-diagram.png" alt="diagram of user data going into an app, then going into third party companies like marketing firms"/>
-        <h5>What are trackers?</h5>
-        <p>Trackers hide inside apps and send your data to third parties.</p>
-        <h5>Why are trackers bad?</h5>
-        <ul>
-          <li><strong>Privacy</strong>: Personal data shouldn't be shared with third parties, especially without explicit user consent.</li>
-          <li><strong>Stability</strong>: Trackers can crash apps, and very recently caused a <a href="https://www.theverge.com/2020/5/7/21250689/facebook-sdk-bug-ios-app-crash-apple-spotify-venmo-tiktok-tinder" target="_blank">massive outage</a> for tens of millions of users.</li>
-          <li><strong>Battery</strong>: Trackers can send personal data even in the background, causing battery drain and slowness.</li>
-        </ul>
-        <p class="pb-0 mb-0">Privacy Review exposes trackers in popular apps by using <a href="https://lockdownhq.com" target="_blank">Lockdown</a>, an app that blocks trackers.</p>
+      <div class="modal-body text-center">
+        <img class="img-fluid w-100 py-1 pt-2 mx-auto" src="{{S3_BUCKET}}/images/tracker-diagram.png" style="max-width: 450px" alt="diagram of user data going into an app, then going into third party companies like marketing firms"/>
+        <div class="text-left px-2">
+          <h5>What are trackers?</h5>
+          <p>Trackers hide inside the apps you use every day, and send your data to third parties.</p>
+          <h5>Why are trackers bad?</h5>
+          <ul>
+            <li><strong>Privacy</strong>: Personal data shouldn't be shared with third parties, especially without user consent.</li>
+            <li><strong>Stability</strong>: Trackers can crash apps, and recently caused a <a href="https://www.theverge.com/2020/5/7/21250689/facebook-sdk-bug-ios-app-crash-apple-spotify-venmo-tiktok-tinder" target="_blank">massive outage</a> for millions of users.</li>
+            <li><strong>Battery</strong>: Trackers operate even in the background, causing battery drain and slowness.</li>
+          </ul>
+          <p class="pb-0 mb-0">Privacy Review exposes trackers in popular apps by using <a href="https://lockdownhq.com" target="_blank">Lockdown</a>, an app that blocks trackers.</p>
+        </div>
       </div>
       <div class="modal-footer text-center">
         <button type="button" data-dismiss="modal" class="btn btn-primary zoom mx-auto px-5">Close</button>

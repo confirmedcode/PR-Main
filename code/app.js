@@ -78,6 +78,10 @@ app.get("/health", (request, response, next) => {
   });
 });
 
+// Password protect site before release TODO: remove before release
+const auth = require('./auth')
+app.use(auth)
+
 app.get("/privacy", (request, response, next) => {
   response.render("privacy");
 });

@@ -15,6 +15,7 @@
   "dependencies": {
     "aws-param-env": "^1.2.0",
     "aws-sdk": "^2.493.0",
+    "basic-auth": "^2.0.1",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
     "express-validator": "^5.3.1",
