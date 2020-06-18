@@ -1,6 +1,6 @@
 const auth = require('basic-auth')
 
-const admin = { name: 'preview', password: 'preview1' }
+const admin = { name: 'previewChop', password: 'previewStaple' }
 
 module.exports = function(request, response, next) {
   var user = auth(request)
