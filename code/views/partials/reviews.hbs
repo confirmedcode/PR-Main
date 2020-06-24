@@ -1,16 +1,16 @@
 {{#each reviews}}
-<div class="w-100 media bg-white border-bottom shadow position-relative py-2 px-2 mb-0" style="height:128px;">
+<div class="w-100 media bg-white border-bottom shadow position-relative py-2 px-2 mb-0" style="height:132px;">
   <img src="{{this.iconUrl}}" class="img-fluid mt-2 mx-2" style="border-radius: 20% !important; width: 70px">
   {{#if this.disclaimer }}
   <span class="notify-badge" style="position: absolute; left: 8px; top: 8px; background:red; text-align: center; border-radius: 11px; color:white; padding-top: 1px; font-size:13px; font-weight: 800; width: 22px; height: 22px; line-height: 20px;"><strong>!</strong></span>
   {{/if}}
   {{#if this.ranking }}
-    <span class="d-block text-muted" style="opacity: 0.7; font-size: 11px; font-weight: 600; position:absolute; top:2.5px; right:0px; padding-right: 8px; padding-left: 7px; padding-top: 2px; padding-bottom: 2px;">{{this.ranking}}</span>
+    <span class="d-block text-muted" style="opacity: 0.7; font-size: 11px; font-weight: 600; position:absolute; top:2.5px; right:0px; padding-right: 8px; padding-left: 7px; padding-top: 1px; padding-bottom: 2px;">{{this.ranking}}</span>
   {{/if}}
   <div class="media-body pl-1 pr-1">
     <div class="row">
       <div class="col-12 pb-1 pt-1 pl-3">
-        <h5 class="mt-0 pb-0 mb-0 pl-0 font-weight-bold">{{this.displayName}}</h5>
+        <h5 class="mt-0 pb-0 mb-0 pl-0 pt-1 font-weight-bold">{{this.displayName}}</h5>
         <p class="text-muted mb-0 pl-0 pb-1 small font-weight-bold">{{this.tagline}}</p>
       </div>
     </div>
