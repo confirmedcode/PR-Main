@@ -25,7 +25,7 @@ router.get("/",
 ],
 (request, response, next) => {
   const filter = request.values.filter;
-  
+
   var trackers = [];
   var trackerDisplayName = '';
   return Tracker.getAll()
@@ -80,7 +80,7 @@ router.get("/:review",
 ],
 (request, response, next) => {
   const review = request.values.review;
-  return Review.getWithName(review)
+  return Review.getWithName(review, true)
     .then(reviewItem => {
       return response.render("review", {
         review: reviewItem
