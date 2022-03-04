@@ -42,7 +42,7 @@ process.on("unhandledRejection", error => {
 // Basic Security
 app.use(require("helmet")());
 
-app.engine(".hbs", require("express-handlebars")({
+app.engine(".hbs", require("express-handlebars").engine({
   defaultLayout: "main",
   extname: ".hbs",
   partialsDir: __dirname + "/views/partials/"
